@@ -1,3 +1,3 @@
 # interviewbit
 
-<img src=Interviewbit.png/>
+<img src=BeforeSession1.gif/>
