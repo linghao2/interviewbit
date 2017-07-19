@@ -6,19 +6,6 @@ public class ArrayBit {
 	
 	public ArrayBit() {
 		/*
-		//String str = "A man, a plan, a canal: Panama";
-		String str = "race a car";
-		int isP = isPalindrome(str);
-		System.out.println(str + " " + (isP == 0 ? " is NOT a palindrome" : "is a palindrome"));
-
-		Random rand = new Random();
-		int value = 2;
-		while (value < 3999) {
-			String roman = intToRoman(value);
-			System.out.println(value + " -> " + roman);		
-			value += rand.nextInt(20) + 1;
-		}
-		
 		Integer[] list = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
 		int max = maxSubArray(Arrays.asList(list));
 		System.out.println("max: " + max);
@@ -27,11 +14,51 @@ public class ArrayBit {
 		for (int i = 0; i < perms.size(); i++) {
 			System.out.println(perms.get(i));	
 		}
-*/
 		//Integer[] list2 = {2, 1, 3, 4, 1, 6, 1, 5, 4,9};
 		Integer[] list2 = {1,2,3,4};
 		ArrayList<Integer> waveList = wave(Arrays.asList(list2));
 		System.out.println(waveList);
+*/
+	}
+	
+	/*
+	 * Add One To Number
+	 * Given a non-negative number represented as an array of digits,
+	 * add 1 to the number ( increment the number represented by the digits ).
+	 * The digits are stored such that the most significant digit is at the head of the list.
+	 * [1,2,3] -> returns [1,2,4]
+	 * [9,9,9,9,9] -> returns [1,0,0,0,0,0]
+	 * 
+	 */
+	public ArrayList<Integer> plusOne(ArrayList<Integer> a) {
+		ArrayList<Integer> list = new ArrayList<Integer>(a.size() + 1);
+
+		// remove leading zero's 
+		int index = 0;
+		if (a.size() > 1) {
+			for (int i = 0; i < a.size(); i++) {
+				if (a.get(i) == 0) {
+					index = i + 1;
+				} else {
+					break;
+				}
+			}
+		}
+		Integer carry = 1;
+		for (int i = a.size() - 1; i >= index; i--) {
+			Integer num = a.get(i) + carry;
+			if (num >= 10) {
+				carry = 1;
+				num = 0;
+			} else {
+				carry = 0;
+			}
+			list.add(0, num);
+		}
+		if (carry > 0) {
+			list.add(0, carry);
+		}
+		return list;
 	}
 	
 	/*
@@ -117,64 +144,6 @@ public class ArrayBit {
 		return max;
 	}
 
-	public String intToRoman(int a) {
-		int thousands = a / 1000;
-		int hundreds = (a - (1000 * thousands)) / 100;
-		int tens = (a - (1000 * thousands) - (100 * hundreds)) / 10;
-		int singles = a - (1000 * thousands) - (100 * hundreds) - (tens * 10);
-		
-		StringBuffer buf = new StringBuffer();
-		
-		buf.append(digitToRoman(thousands, new String[]{"M", "?", "?"}));
-		buf.append(digitToRoman(hundreds, new String[]{"C", "D", "M"}));
-		buf.append(digitToRoman(tens, new String[]{"X", "L", "C"}));
-		buf.append(digitToRoman(singles, new String[]{"I", "V", "X"}));
-		
-		return buf.toString();
-	}
-	
-	public String digitToRoman(int digit, String map[]) {
-		StringBuffer buf = new StringBuffer();
-		if (digit <= 3) {
-			for (int i = 0; i < digit; i++) {
-				buf.append(map[0]);
-			}
-		} else if (digit == 4) {
-			buf.append(map[0] + map[1]);
-		} else if (digit == 5) {
-			buf.append(map[1]);
-		} else if (digit < 9) {
-			buf.append(map[1]);
-			for (int i = 5; i < digit; i++) {
-				buf.append(map[0]);
-			}
-		} else if (digit == 9) {
-			buf.append(map[0] + map[2]);			
-		}
-		return buf.toString();
-	}
-	
-	public int isPalindrome(String a) {
-		StringBuffer buf = new StringBuffer();
-		for (char c : a.toCharArray()) {
-			if (Character.isDigit(c) || Character.isAlphabetic(c)) {
-				buf.append(Character.toLowerCase(c));
-			}
-		}
-		
-		String str = buf.toString();
-		int start = 0;
-		int end = str.length()-1;
-		while (start < end) {
-			if (str.charAt(start) != str.charAt(end)) {
-				return 0;
-			}
-			start++;
-			end--;
-		}
-		return 1;
-	}
-	
 	public static void main(String[] args) {
 		new ArrayBit();
 	}
