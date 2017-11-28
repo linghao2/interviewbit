@@ -1,3 +1,3 @@
 # interviewbit
 
-<img src=BeforeSession1.gif/>
+<img src="https://github.com/linghao2/interviewbit/">
