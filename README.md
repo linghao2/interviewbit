@@ -1,2 +1,2 @@
 #Interviewbit assignment 1
-<img src="https://media.giphy.com/media/xT0xepeX9qUa7wOO4M/giphy.gif">
+<img src="https://media.giphy.com/media/3oxHQmguRf9v9dMR7a/giphy.gif">
