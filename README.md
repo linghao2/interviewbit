@@ -1,2 +1,2 @@
-#Interviewbit before session 2
-<img src="https://media.giphy.com/media/xT0xeyQDTuI1y0N2ak/giphy.gif">
+#Interviewbit session 2 assignment
+<img src="https://media.giphy.com/media/3o6fJ4gL9P2Ex3fOaQ/giphy.gif">
